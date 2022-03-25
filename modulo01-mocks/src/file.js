@@ -21,8 +21,8 @@ class File {
     }
 
     static isValid(csvString, options = DEFAULT_OPTION) {
-        const [header, ...fileWithoutHeader] = csvString.split('\n')
-        const isHeaderValid = header.trim() === options.fields.join(',')
+        const [header, ...fileWithoutHeader] = csvString.split('\r\n')
+        const isHeaderValid = header === options.fields.join(',')
         if(!isHeaderValid) {
             return {
                 error: error.FILE_FIELDS_ERROR_MESSAGE,
@@ -46,7 +46,7 @@ class File {
     }
 
     static parseCSVToJSON(csvString) {
-        const lines = csvString.split('\n')
+        const lines = csvString.split('\r\n')
         const firstLine = lines.shift()
         const header = firstLine.split(',')
 
@@ -55,7 +55,7 @@ class File {
             let user = {}
 
             for (const index in columns) {
-                user[header[index].trim()] = columns[index].trim()
+                user[header[index]] = columns[index]
             }
 
             return new User(user)
