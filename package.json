@@ -1,0 +1,28 @@
+{
+  "name": "JS-Expert",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "sinon": "^13.0.1",
+    "supertest": "^6.2.2"
+  },
+  "devDependencies": {
+    "mocha": "^9.2.2"
+  },
+  "scripts": {
+    "test:e2e": "npx mocha -w --parallel \"./module01-coverage-e2e/test/*.test.js\"",
+    "test:cov": "npx nyc npx mocha --parallel \"./module01-coverage-e2e/test/*.test.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Evertonslv/JS-Expert.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Evertonslv/JS-Expert/issues"
+  },
+  "homepage": "https://github.com/Evertonslv/JS-Expert#readme"
+}
